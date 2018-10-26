@@ -8,4 +8,6 @@ RUN pip3 install -U awscli
 
 RUN git clone https://github.com/mergermarket/cdflow /tmp/cdflow && \
     pip3 install -r /tmp/cdflow/requirements.txt && \
-    cp /tmp/cdflow/cdflow.py /usr/local/bin/cdflow
+    cp /tmp/cdflow/cdflow.py /usr/local/bin/cdflow && \
+    rm -rf /tmp/cdflow && \
+    cdflow --validate-wrapper-installation
