@@ -11,3 +11,5 @@ RUN git clone https://github.com/mergermarket/cdflow /tmp/cdflow && \
     cp /tmp/cdflow/cdflow.py /usr/local/bin/cdflow && \
     rm -rf /tmp/cdflow && \
     cdflow --validate-wrapper-installation
+
+WORKDIR /workspace
