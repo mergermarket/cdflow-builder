@@ -1,6 +1,6 @@
 FROM docker:18.06.1-ce-dind
 
-RUN apk add --no-cache git curl \
+RUN apk add --no-cache git curl bash \
                        python3 && \
     ln -s /usr/bin/python3 /usr/local/bin/python
 
