@@ -4,7 +4,7 @@ RUN apk add --no-cache git curl bash \
                        python3 && \
     ln -s /usr/bin/python3 /usr/local/bin/python
 
-RUN pip3 install -U awscli
+RUN pip3 install -U awscli docker-compose
 
 RUN git clone https://github.com/mergermarket/cdflow /tmp/cdflow && \
     pip3 install -r /tmp/cdflow/requirements.txt && \
