@@ -10,6 +10,9 @@ RUN git clone https://github.com/mergermarket/cdflow /tmp/cdflow && \
     pip3 install -r /tmp/cdflow/requirements.txt && \
     cp /tmp/cdflow/cdflow.py /usr/local/bin/cdflow && \
     rm -rf /tmp/cdflow && \
-    cdflow --validate-wrapper-installation
+    python -c 'from importlib.util import spec_from_loader, module_from_spec; \
+from importlib.machinery import SourceFileLoader; \
+spec = spec_from_loader("cdflow", SourceFileLoader("cdflow", "/usr/local/bin/cdflow")); \
+spec.loader.exec_module(module_from_spec(spec))'
 
 WORKDIR /workspace
