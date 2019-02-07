@@ -8,10 +8,10 @@ Docker container for running [cdflow](https://mergermarket.github.io/cdflow/) wi
 
 Run container with Docker-in-Docker:
 ```
-docker run -d --rm --privileged --name build -v $PWD:$PWD -w $PWD mergermarket/cdflow-builder
+docker container run -d --rm --privileged --name build -v $(pwd):$(pwd) -w $(pwd) mergermarket/cdflow-builder
 ```
 
 Run `cdflow` in the container:
 ```
-docker exec -t build cdflow --help
+docker container exec -t build cdflow --help
 ```
