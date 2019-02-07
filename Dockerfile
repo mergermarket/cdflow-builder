@@ -4,10 +4,11 @@ RUN apk add --no-cache git curl bash \
                        python3 && \
     ln -s /usr/bin/python3 /usr/local/bin/python
 
-RUN pip3 install -U awscli docker-compose
+RUN pip3 install -U awscli docker-compose pipenv
 
 RUN git clone https://github.com/mergermarket/cdflow /tmp/cdflow && \
-    pip3 install -r /tmp/cdflow/requirements.txt && \
+    cd /tmp/cdflow && \
+    pipenv install --system --deploy && \
     cp /tmp/cdflow/cdflow.py /usr/local/bin/cdflow && \
     rm -rf /tmp/cdflow && \
     python -c 'from importlib.util import spec_from_loader, module_from_spec; \
