@@ -16,4 +16,6 @@ from importlib.machinery import SourceFileLoader; \
 spec = spec_from_loader("cdflow", SourceFileLoader("cdflow", "/usr/local/bin/cdflow")); \
 spec.loader.exec_module(module_from_spec(spec))'
 
+COPY ./files/postStart /usr/local/bin/postStart
+
 WORKDIR /workspace

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo 'Deleting old docker resources'
+docker system prune -af --filter 'until=72h'
+docker volume prune -f
+echo 'Done'
