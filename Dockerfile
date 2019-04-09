@@ -1,10 +1,11 @@
 FROM docker:18.06.3-ce-dind
 
-RUN apk add --no-cache git curl bash \
-                       python3 && \
+RUN apk add --no-cache git curl bash build-base \
+                       openssl-dev libffi-dev \
+                       python3-dev python3 && \
     ln -s /usr/bin/python3 /usr/local/bin/python
 
-RUN pip3 install -U awscli docker-compose pipenv
+RUN pip3 install -U pip awscli docker-compose pipenv
 
 RUN git clone https://github.com/mergermarket/cdflow /tmp/cdflow && \
     cd /tmp/cdflow && \
